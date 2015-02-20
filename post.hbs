@@ -1,0 +1,86 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
+
+<header class="{{#if image}}has-cover" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
+    <nav>
+        <a href="{{@blog.url}}">Home</a>
+        <a href="{{@blog.url}}/rss/">Subscribe</a>
+    </nav>
+</header>
+
+<main>
+    <article class="{{post_class}}">
+        <header>
+            <h1>{{title}}</h1>
+            
+            <section>
+                <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time> {{tags prefix=" on "}}
+            </section>
+        </header>
+
+        <section>
+            {{content}}
+        </section>
+
+        <footer>
+            {{! Everything inside the #author tags pulls data from the author }}
+            {{#author}}
+
+            {{#if image}}
+            <figure>
+                <a href="{{url}}" style="background-image: url({{image}})">
+                    <span>{{name}}'s Picture</span>
+                </a>
+            </figure>
+            {{/if}}
+
+            <section>
+                <h4><a href="{{url}}">{{name}}</a></h4>
+
+                {{#if bio}}
+                    <p>{{bio}}</p>
+                {{else}}
+                    <p>Read <a href="{{url}}">more posts</a> by this author.</p>
+                {{/if}}
+
+                <div>
+                    {{#if location}}
+                    <span>{{location}}</span>
+                    {{/if}}
+                    
+                    {{#if website}}
+                    <span><a href="{{website}}">{{website}}</a></span>
+                    {{/if}}
+                </div>
+            </section>
+
+            {{/author}}
+
+            <section>
+                <h4>Share this post</h4>
+                
+                <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span>Twitter</span>
+                </a>
+                
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span>Facebook</span>
+                </a>
+                
+                <a href="https://plus.google.com/share?url={{url absolute="true"}}"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span>Google+</span>
+                </a>
+            </section>
+        </footer>
+    </article>
+</main>
+
+{{/post}}

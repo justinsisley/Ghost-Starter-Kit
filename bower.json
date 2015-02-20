@@ -1,0 +1,19 @@
+{
+  "name": "blank",
+  "version": "0.0.0",
+  "authors": [
+    "Justin Sisley <justin@veradocs.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2",
+    "modernizr": "~2.8.3"
+  }
+}
