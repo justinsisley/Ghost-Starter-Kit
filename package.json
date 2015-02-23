@@ -2,8 +2,11 @@
   "name": "blank",
   "version": "1.0.0",
   "description": "",
+  "repository": "https://github.com/justinsisley/Ghost-Starter-Kit",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "install": "bower install"
+  },
   "author": "justin@electricartwork.com",
   "license": "MIT",
   "devDependencies": {
@@ -23,7 +26,6 @@
     "gulp-util": "^3.0.3",
     "jshint-stylish": "^1.0.0",
     "map-stream": "0.0.5",
-    "rimraf": "^2.2.8",
     "run-sequence": "^1.0.2"
   }
 }

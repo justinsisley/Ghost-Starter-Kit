@@ -20,11 +20,11 @@ This is a bare-bones starter kit for developing themes for the [Ghost](http://gh
 
 It uses the same markup as the default theme that ships with Ghost, so it should contain examples of just about everything you can do with the [latest Ghost release](https://github.com/TryGhost/Ghost/releases).
 
-Some basic styles are applied, and there are a few JavaScript examples.
+Some very basic styles are applied, and there are a few JavaScript examples.
 
 Babel lets us use [ES6 syntax](https://github.com/lukehoban/es6features), which is fun.
 
-ES6 syntax is compiled to ES5 using CommonJS modules
+ES6 syntax is compiled to ES5 using CommonJS modules, which are then [Browserified](http://browserify.org/) and [uglified](https://github.com/mishoo/UglifyJS).
 
 ## Installation
 
@@ -43,22 +43,26 @@ npm install -g bower gulp
 Once you've got Node.js, Bower and Gulp installed, you can install the project's dependencies by running
 
 ```
-gulp install
+npm install
 ```
+
+The install task will also update the project dependencies. You should run it if you've installed or upgraded a package using NPM or Bower.
 
 ## Development
 
-After the project's dependencies are installed, start developing by running
+After the project's dependencies are installed, start developing by running the default Gulp task:
 
 ```
 gulp
 ```
 
-This will start the JavaScript and LESS watchers and runs tasks on changes. The browser will automatically reload.
+This will start the JavaScript and LESS watchers and runs additional tasks on file changes. The browser will automatically reload with your latest JavaScript and CSS.
 
 This task will automatically compile JavaScript and LESS files, which are ignored by git. You can now start Ghost and enable this theme to begin working on it.
 
 All Gulp tasks are kept extremely fast by using in-memory file caches to avoid processing unchanged files. This means it uses a bit more memory, but it shouldn't be noticeable.
+
+`CTRL + C` will stop the task.
 
 ### Copyright & License
 

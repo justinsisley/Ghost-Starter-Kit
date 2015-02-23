@@ -14,7 +14,7 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var browserify = require('gulp-browserify');
 var beep = require('beepbeep');
-var rimraf = require('rimraf');
+var exec = require('child_process').exec;
 
 // Error handler for single task failure or a
 // parse error.
@@ -35,7 +35,7 @@ function onStreamError() {
 }
 
 gulp.task('delete-temp', function() {
-    return rimraf('tmp', function() {})
+    exec('tmp');
 });
 
 gulp.task('csslint', function() {
@@ -109,10 +109,6 @@ gulp.task('release', function() {
     // version as the version tag. Bump the version
     // in package.json and bower.json
 });
-
-// "npm install" local deps
-// "bower install" local deps
-gulp.task('install', function() {});
 
 gulp.task('default', ['less', 'javascript'], function() {
     livereload.listen(35731);
