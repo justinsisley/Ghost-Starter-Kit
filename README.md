@@ -34,7 +34,7 @@ You'll need [Node.js and NPM](http://nodejs.org/). [Homebrew](http://brew.sh/) m
 brew install node
 ```
 
-After that, you'll need a few global Node.js packages for development. Feel free to read about them before installing. ([Bower](http://bower.io/), [Gulp](http://gulpjs.com/))
+After that, you'll need a few global Node.js packages for development.
 
 ```
 npm install -g bower gulp
