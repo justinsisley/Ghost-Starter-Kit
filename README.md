@@ -24,7 +24,7 @@ Some very basic styles are applied, and there are a few JavaScript examples.
 
 Babel lets us use [ES6 syntax](https://github.com/lukehoban/es6features), which is fun.
 
-ES6 syntax is compiled to ES5 using CommonJS modules, which are then [Browserified](http://browserify.org/) and [uglified](https://github.com/mishoo/UglifyJS).
+ES6 syntax is compiled to ES5 using [CommonJS](http://addyosmani.com/writing-modular-js/) modules, which are then [Browserified](http://browserify.org/) and [uglified](https://github.com/mishoo/UglifyJS).
 
 ## Installation
 
