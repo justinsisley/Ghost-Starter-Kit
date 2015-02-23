@@ -64,6 +64,12 @@ All Gulp tasks are kept extremely fast by using in-memory file caches to avoid p
 
 `CTRL + C` will stop the task.
 
+## Distribution
+
+A handy Gulp task will create versioned release archives in the `dist` directory. All development files and folders will be stripped from this archive. JavaScript and CSS will be minified, and images will be compressed.
+
+The archives that are produced can be unzipped and dropped into any Ghost installation's theme directory, then enabled from the blog settings page.
+
 ### Copyright & License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:

@@ -114,8 +114,7 @@ gulp.task('release', ['bump'], function() {
         '-x "*node_modules*"', '-x "*bower_components*"',
         '-x "js*"', '-x "less*"', '-x "*tmp*"', '-x "dist*"',
         '-x ".gitignore"', '-x ".csslintrc"', '-x ".jshintrc"',
-        '-x "package.json"', '-x "bower.json"',
-        '-x ".git*"', '-x "README.md"', '-x "gulpfile.js"'
+        '-x "bower.json"', '-x ".git*"', '-x "README.md"', '-x "gulpfile.js"'
     ];
 
     try {fs.mkdirSync('dist');} catch(e) {}
