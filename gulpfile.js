@@ -110,23 +110,13 @@ gulp.task('release', function() {
     // in package.json and bower.json
 });
 
-// Default task is "development mode".
-// It starts the JavaScript and LESS
-// watchers and runs tasks on changes.
-// The browser will live-reload.
+// "npm install" local deps
+// "bower install" local deps
+gulp.task('install', function() {});
+
 gulp.task('default', ['less', 'javascript'], function() {
     livereload.listen(35731);
 
     gulp.watch('less/**/*.less', ['less']);
     gulp.watch('js/**/*.js', ['javascript']);
 });
-
-// document global deps
-// this task should:
-// "npm install" local deps
-// "bower install" local deps
-gulp.task('install', function() {});
-
-// "npm install"
-// "bower install"
-gulp.task('upgrade', function() {});

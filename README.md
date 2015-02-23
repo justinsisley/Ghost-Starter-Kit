@@ -2,6 +2,30 @@
 
 Based on the default theme for [Ghost](http://github.com/tryghost/ghost/).
 
+This is a bare-bones starter kit for developing themes for the [Ghost](http://ghost.org/) blogging platform. It uses some very helpful utilities to make development a joy.
+
+<img src="https://avatars0.githubusercontent.com/u/6200624" alt="Gulp" height="50">
+<img src="https://camo.githubusercontent.com/aad5f0385a2d8524cb366a1bad62bc74e797743a/687474703a2f2f692e696d6775722e636f6d2f516d47485067632e706e67" alt="Bower" height="50">
+<img src="http://lesscss.org/public/img/logo.png" alt="LESS" height="45">
+<img src="https://babeljs.io/images/logo.svg" alt="Babel" height="45">
+<img src="http://upload.wikimedia.org/wikipedia/commons/e/ea/Boostrap_logo.svg" alt="Bootstrap 3" height="45">
+
+- [Gulp](http://gulpjs.com/)
+- [Bower](http://bower.io/)
+- [LESS](http://lesscss.org/)
+- [Babel](https://babeljs.io/)
+- [Twitter Bootstrap](http://getbootstrap.com/)*
+
+*It's pre-configured to use [Bootstrap 3](http://getbootstrap.com/), but you can easily ditch it and use your library of choice.
+
+It uses the same markup as the default theme that ships with Ghost, so it should contain examples of just about everything you can do with the [latest Ghost release](https://github.com/TryGhost/Ghost/releases).
+
+Some basic styles are applied, and there are a few JavaScript examples.
+
+Babel lets us use [ES6 syntax](https://github.com/lukehoban/es6features), which is fun.
+
+ES6 syntax is compiled to ES5 using CommonJS modules
+
 ## Installation
 
 You'll need [Node.js and NPM](http://nodejs.org/). [Homebrew](http://brew.sh/) makes it very easy.
@@ -22,6 +46,8 @@ Once you've got Node.js, Bower and Gulp installed, you can install the project's
 gulp install
 ```
 
+## Development
+
 After the project's dependencies are installed, start developing by running
 
 ```
@@ -31,6 +57,8 @@ gulp
 This will start the JavaScript and LESS watchers and runs tasks on changes. The browser will automatically reload.
 
 This task will automatically compile JavaScript and LESS files, which are ignored by git. You can now start Ghost and enable this theme to begin working on it.
+
+All Gulp tasks are kept extremely fast by using in-memory file caches to avoid processing unchanged files. This means it uses a bit more memory, but it shouldn't be noticeable.
 
 ### Copyright & License
 
