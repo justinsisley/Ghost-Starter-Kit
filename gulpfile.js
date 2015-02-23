@@ -13,7 +13,9 @@ var babel = require('gulp-babel');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var browserify = require('gulp-browserify');
+var bump = require('gulp-bump');
 var beep = require('beepbeep');
+var fs = require('fs');
 var exec = require('child_process').exec;
 
 // Error handler for single task failure or a
@@ -98,16 +100,27 @@ gulp.task('javascript', function() {
     return runSequence('jshint', 'es6-compile', 'browserify', 'delete-temp');
 });
 
-gulp.task('release', function() {
-    // Should make a copy of all files and
-    // folders, minus bower_components,
-    // node_modules, js, less, .csslintrc,
-    // .gitignore, .git, bower.json, gulpfile.js
-    // then automatically zip up the remaining
-    // files and folders, naming the zip file
-    // "{theme name}_{version}.zip" using the package.json
-    // version as the version tag. Bump the version
-    // in package.json and bower.json
+gulp.task('bump', function(){
+    return gulp.src(['./bower.json', './package.json'])
+        .pipe(bump())
+        .pipe(gulp.dest('./'));
+});
+
+gulp.task('release', ['bump'], function() {
+    var packageJSON = JSON.parse(fs.readFileSync('package.json', {encoding: 'utf8'}));
+    var version = packageJSON.version;
+    var commands = [
+        'zip -r ./dist/v' + version + '.zip ./',
+        '-x "*node_modules*"', '-x "*bower_components*"',
+        '-x "js*"', '-x "less*"', '-x "*tmp*"', '-x "dist*"',
+        '-x ".gitignore"', '-x ".csslintrc"', '-x ".jshintrc"',
+        '-x "package.json"', '-x "bower.json"',
+        '-x ".git*"', '-x "README.md"', '-x "gulpfile.js"'
+    ];
+
+    try {fs.mkdirSync('dist');} catch(e) {}
+
+    exec(commands.join(' '));
 });
 
 gulp.task('default', ['less', 'javascript'], function() {
