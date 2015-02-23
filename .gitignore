@@ -24,3 +24,6 @@ Thumbs.db
 # Node and Bower
 node_modules
 bower_components
+
+# Distribution-ready files
+dist
