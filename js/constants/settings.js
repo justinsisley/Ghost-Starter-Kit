@@ -4,5 +4,5 @@ export default {
     dev: true,
     time: Date.now(),
     word: something(),
-    number: 25
+    number: 30
 };

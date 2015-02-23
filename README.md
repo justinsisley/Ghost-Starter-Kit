@@ -64,11 +64,18 @@ All Gulp tasks are kept extremely fast by using in-memory file caches to avoid p
 
 `CTRL + C` will stop the task.
 
-## Distribution
+## Distributing Your Theme
 
 A handy Gulp task will create versioned release archives in the `dist` directory. All development files and folders will be stripped from this archive. JavaScript and CSS will be minified, and images will be compressed.
 
 The archives that are produced can be unzipped and dropped into any Ghost installation's theme directory, then enabled from the blog settings page.
+
+Build Type | Command
+:----------|:--------
+Build a patch release, _e.g. 0.0.1_ | `gulp release`
+Build a minor release, _e.g. 0.1.0_ | `gulp release-minor`
+Build a major release, _e.g. 1.0.0_ | `gulp release-major`
+
 
 ### Copyright & License
 

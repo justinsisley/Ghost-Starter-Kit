@@ -37,7 +37,7 @@ function onStreamError() {
 }
 
 gulp.task('delete-temp', function() {
-    exec('tmp');
+    return exec('tmp');
 });
 
 gulp.task('csslint', function() {
@@ -100,13 +100,25 @@ gulp.task('javascript', function() {
     return runSequence('jshint', 'es6-compile', 'browserify', 'delete-temp');
 });
 
-gulp.task('bump', function(){
+gulp.task('bump', function() {
     return gulp.src(['./bower.json', './package.json'])
         .pipe(bump())
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('release', ['bump'], function() {
+gulp.task('bump-minor', function() {
+    return gulp.src(['./bower.json', './package.json'])
+        .pipe(bump({type: 'minor'}))
+        .pipe(gulp.dest('./'));
+});
+
+gulp.task('bump-major', function() {
+    return gulp.src(['./bower.json', './package.json'])
+        .pipe(bump({type: 'major'}))
+        .pipe(gulp.dest('./'));
+});
+
+gulp.task('archive', function() {
     var packageJSON = JSON.parse(fs.readFileSync('package.json', {encoding: 'utf8'}));
     var version = packageJSON.version;
     var commands = [
@@ -120,6 +132,18 @@ gulp.task('release', ['bump'], function() {
     try {fs.mkdirSync('dist');} catch(e) {}
 
     exec(commands.join(' '));
+});
+
+gulp.task('release', function() {
+    runSequence('bump', 'archive');
+});
+
+gulp.task('release-minor', function() {
+    runSequence('bump-minor', 'archive');
+});
+
+gulp.task('release-major', function() {
+    runSequence('bump-major', 'archive');
 });
 
 gulp.task('default', ['less', 'javascript'], function() {
