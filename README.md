@@ -46,7 +46,7 @@ Once you've got Node.js, Bower and Gulp installed, you can install the project's
 npm install
 ```
 
-The install task will also update the project dependencies. You should run it if you've installed or upgraded a package using NPM or Bower.
+The install task will also install and update the project's Bower dependencies. You should run it if you've installed or upgraded any package using NPM or Bower.
 
 ## Development
 
