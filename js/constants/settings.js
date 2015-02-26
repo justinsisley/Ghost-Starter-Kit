@@ -1,8 +1,8 @@
-import something from './something';
+import strings from './strings';
 
 export default {
     dev: true,
     time: Date.now(),
-    word: something(),
-    number: 8
+    sucess: strings.success,
+    number: 20
 };
