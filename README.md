@@ -5,7 +5,7 @@ Based on the default theme for [Ghost](http://github.com/tryghost/ghost/).
 This is a bare-bones starter kit for developing themes for the [Ghost](http://ghost.org/) blogging platform. It uses some very helpful utilities to make development a joy.
 
 <img src="https://avatars0.githubusercontent.com/u/6200624" alt="Gulp" height="50">
-<img src="https://www.npmjs.com/static/images/npm-logo.svg" alt="NPM" height="50">
+<img src="https://www.npmjs.com/static/images/npm-logo.svg" alt="NPM" height="45">
 <img src="http://lesscss.org/public/img/logo.png" alt="LESS" height="45">
 <img src="https://babeljs.io/images/logo.svg" alt="Babel" height="45">
 <img src="http://upload.wikimedia.org/wikipedia/commons/e/ea/Boostrap_logo.svg" alt="Bootstrap 3" height="45">
