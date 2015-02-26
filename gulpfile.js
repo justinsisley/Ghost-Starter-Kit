@@ -3,6 +3,8 @@ var gutil = require('gulp-util');
 var map = require('map-stream');
 var runSequence = require('run-sequence');
 var livereload = require('gulp-livereload');
+var changed = require('gulp-changed');
+var remember = require('gulp-remember');
 var cache = require('gulp-cached');
 var less = require('gulp-less');
 var csslint = require('gulp-csslint');
@@ -37,7 +39,7 @@ function onStreamError() {
 }
 
 gulp.task('delete-temp', function() {
-    return exec('tmp');
+    return exec('rm -rf tmp');
 });
 
 gulp.task('csslint', function() {
@@ -76,16 +78,21 @@ gulp.task('jshint', function() {
 
 gulp.task('es6-compile', function() {
     return gulp.src('js/**/*.js')
-        .pipe(cache('es6-compile'))
         .pipe(babel().on('error', onTaskError))
         .pipe(gulp.dest('tmp/js'));
 });
 
+// TODO:
+// speed up javascript task
+// need sourcemaps
+
 gulp.task('browserify', function() {
     return gulp.src('tmp/js/main.js')
+        .pipe(changed('assets/js'))
         .pipe(cache('browserify'))
+        //.pipe(remember('browserify'))
         .pipe(browserify({insertGlobals: true}).on('error', onTaskError))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest('assets/js'))
         .pipe((function() {
             livereload.changed('assets/js/main.js');
@@ -93,13 +100,15 @@ gulp.task('browserify', function() {
             return map(function(file, cb) {
                 cb(null, file);
             });
-        })());
+        })())
+        .pipe(livereload());
 });
 
 gulp.task('javascript', function() {
     return runSequence('jshint', 'es6-compile', 'browserify', 'delete-temp');
 });
 
+// FIXME: lots of repeated code here...
 gulp.task('bump', function() {
     return gulp.src(['./bower.json', './package.json'])
         .pipe(bump())

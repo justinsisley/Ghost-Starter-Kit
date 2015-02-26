@@ -21,9 +21,8 @@ Thumbs.db
 .*swp
 .*swo
 
-# Node and Bower
+# Node
 node_modules
-bower_components
 
 # Built files
 assets/css/*

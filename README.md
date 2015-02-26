@@ -5,13 +5,13 @@ Based on the default theme for [Ghost](http://github.com/tryghost/ghost/).
 This is a bare-bones starter kit for developing themes for the [Ghost](http://ghost.org/) blogging platform. It uses some very helpful utilities to make development a joy.
 
 <img src="https://avatars0.githubusercontent.com/u/6200624" alt="Gulp" height="50">
-<img src="https://camo.githubusercontent.com/aad5f0385a2d8524cb366a1bad62bc74e797743a/687474703a2f2f692e696d6775722e636f6d2f516d47485067632e706e67" alt="Bower" height="50">
+<img src="https://www.npmjs.com/static/images/npm-logo.svg" alt="NPM" height="50">
 <img src="http://lesscss.org/public/img/logo.png" alt="LESS" height="45">
 <img src="https://babeljs.io/images/logo.svg" alt="Babel" height="45">
 <img src="http://upload.wikimedia.org/wikipedia/commons/e/ea/Boostrap_logo.svg" alt="Bootstrap 3" height="45">
 
 - [Gulp](http://gulpjs.com/)
-- [Bower](http://bower.io/)
+- [NPM](https://www.npmjs.com/)
 - [LESS](http://lesscss.org/)
 - [Babel](https://babeljs.io/)
 - [Twitter Bootstrap](http://getbootstrap.com/)*
@@ -37,16 +37,14 @@ brew install node
 After that, you'll need a few global Node.js packages for development.
 
 ```
-npm install -g bower gulp
+npm install -g gulp
 ```
 
-Once you've got Node.js, Bower and Gulp installed, you can install the project's dependencies by running
+Once you've got Node.js and Gulp installed, you can install the project's dependencies by running
 
 ```
 npm install
 ```
-
-The command above will also install and update the project's Bower dependencies. You should run it if you've installed or upgraded any package using NPM or Bower.
 
 ## Development
 
