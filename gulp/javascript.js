@@ -1,20 +1,22 @@
 var gulp = require('gulp');
 var cache = require('gulp-cached');
 var jshint = require('gulp-jshint');
-var uglify = require('gulp-uglify');
+var gulpif = require('gulp-if');
+var livereload = require('gulp-livereload');
 var browserify = require('browserify');
 var watchify = require('watchify');
 var babelify = require('babelify');
 var source = require('vinyl-source-stream');
-var livereload = require('gulp-livereload');
+var runSequence = require('run-sequence');
 var errors = require('./errors');
+var fs = require('fs');
 var watch;
 
 function browserifyBuild(options) {
     var b = browserify({
         cache: {},
         packageCache: {},
-        fullPaths: true,
+        fullPaths: false,
         debug: options.debug
     }).transform(babelify);
 
@@ -27,11 +29,12 @@ function browserifyBuild(options) {
     }
   
     b.add('./js/main.js');
-    browserifyBundle(b);
+    
+    return browserifyBundle(b);
 }
 
 function browserifyBundle(b) {
-    b.bundle()
+    return b.bundle()
         .on('error', errors.onTaskError)
         .pipe(source('main.js'))
         .pipe(gulp.dest('assets/js'))
@@ -40,12 +43,14 @@ function browserifyBundle(b) {
 
 gulp.task('browserify-nowatch', function() {
     watch = false;
-    browserifyBuild({debug: false});
+
+    return browserifyBuild({debug: false});
 });
 
 gulp.task('browserify-watch', function() {
     watch = true;
-    browserifyBuild({debug: true});
+
+    return browserifyBuild({debug: true});
 });
 
 gulp.task('jshint', function() {
