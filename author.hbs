@@ -5,7 +5,7 @@
 
 {{! Everything inside the #author tags pulls data from the author }}
 {{#author}}
-    <header class="{{#if cover}}has-cover" style="background-image: url({{cover}}){{else}}no-cover{{/if}}">
+    <header class="{{#if cover_image}}has-cover" style="background-image: url({{cover_image}}){{else}}no-cover{{/if}}">
         <nav>
             <a href="{{@blog.url}}">Home</a>
             <a href="{{url}}rss/">{{name}}</a>
@@ -13,9 +13,9 @@
     </header>
 
     <section>
-        {{#if image}}
+        {{#if feature_image}}
         <figure>
-            <div style="background-image: url({{image}})">
+            <div style="background-image: url({{img_url}})">
                 <span>{{name}}'s Picture</span>
             </div>
         </figure>
@@ -23,18 +23,18 @@
 
         <h1>{{name}}</h1>
         <h2>{{bio}}</h2>
-        
+
         <div>
             {{#if location}}
             <span>{{location}}</span>
             {{/if}}
-            
+
             {{#if website}}
             <span>
                 <a href="{{website}}">{{website}}</a>
             </span>
             {{/if}}
-            
+
             <span>
                 <i></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}
             </span>
