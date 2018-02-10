@@ -1,11 +1,19 @@
 {
   "name": "blank",
   "version": "0.0.1",
+  "engines": {
+      "ghost": ">=1.2.0"
+  },
   "description": "",
-  "repository": "https://github.com/justinsisley/Ghost-Starter-Kit",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/justinsisley/Ghost-Starter-Kit"
+  },
   "main": "index.js",
-  "scripts": {},
-  "author": "manmademammal@gmail.com",
+  "author": {
+        "name": "Justin Sisley",
+        "email": "manmademammal@gmail.com"
+    },
   "license": "MIT",
   "devDependencies": {
     "babelify": "^5.0.3",
@@ -36,3 +44,4 @@
     "jquery": "^2.1.3"
   }
 }
+

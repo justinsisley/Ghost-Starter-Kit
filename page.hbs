@@ -6,7 +6,7 @@
 {{! Everything inside the #post tags pulls data from the page }}
 {{#post}}
 
-<header class="{{#if image}}has-cover" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
+<header class="{{#if feature_image}}has-cover" style="background-image: url({{img_url}}){{else}}no-cover{{/if}}">
     <nav>
         <a href="{{@blog.url}}">Home</a>
         <a href="{{@blog.url}}/rss/">Subscribe</a>
